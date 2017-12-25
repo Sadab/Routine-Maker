@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace Routine_Maker
 {
-    public partial class LoginForm : Form
+    public partial class StudentLoginFrom : Form
     {
-        public LoginForm()
+        public StudentLoginFrom()
         {
             InitializeComponent();
         }
@@ -30,8 +30,8 @@ namespace Routine_Maker
 
             if (dataReader.HasRows)
             {
-                MainWindow m = new MainWindow();
-                m.Visible = true;
+                RoutineMaker rm = new RoutineMaker();
+                rm.Visible = true;
                 this.Visible = false;
             }
             else
@@ -44,13 +44,6 @@ namespace Routine_Maker
         private void exitBtn_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void studentLoginBtn_Click(object sender, EventArgs e)
-        {
-            StudentLoginFrom sl = new StudentLoginFrom();
-            sl.Visible = true;
-            this.Visible = false;
         }
     }
 }
