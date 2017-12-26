@@ -1,2 +1,2 @@
 # Routine-Maker
-Simple Routine Maker for Educational Purpose
+Simple Routine Maker for Students
