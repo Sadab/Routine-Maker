@@ -86,22 +86,59 @@ namespace Routine_Maker
         }
         public void CourseChecker()
         {
-
+            
         }
         private void addCourseToListBtn_Click(object sender, EventArgs e)
         {
+            bool flag=false;
             string query = "INSERT INTO Routine (CourseName,CourseTime,CourseDay,CourseSection) VALUES (@CourseName,@CourseTime,@CourseDay,@CourseSection)";
+            string query2 = "select * from Routine";
             string myConnectionString = ConfigurationManager.ConnectionStrings["routineDB"].ConnectionString.ToString();
-            SqlConnection con = new SqlConnection(myConnectionString);
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
-            cmd.Parameters.Add("@CourseName", courseNameLbl.Text);
-            cmd.Parameters.Add("@CourseTime", courseTimeLbl.Text);
-            cmd.Parameters.Add("@CourseDay", courseDayLbl.Text);
-            cmd.Parameters.Add("@CourseSection", courseSecLbl.Text);
-            cmd.ExecuteNonQuery();
-            DisplayData();
-
+            
+            
+            
+            if (courseNameLbl.Text == "" && courseDayLbl.Text == "" && courseTimeLbl.Text == "" && courseSecLbl.Text == "")
+            {
+                MessageBox.Show("Fill up all feilds");
+            }
+            else
+            {
+                SqlConnection con = new SqlConnection(myConnectionString);
+                con.Open();
+                SqlCommand cmd1 = new SqlCommand(query2, con);
+                SqlDataReader rd = cmd1.ExecuteReader();
+                while (rd.Read())
+                {
+                    if (rd[1].ToString() == courseNameLbl.Text && rd[2].ToString() == courseTimeLbl.Text && rd[3].ToString() == courseDayLbl.Text)
+                    {
+                        flag = true;
+                        break;
+                    }
+                    else if(rd[1].ToString()==courseNameLbl.Text&& rd[2].ToString() == courseTimeLbl.Text)
+                    {
+                        flag = true;
+                        break;
+                    }
+                }
+            }
+            
+            
+            if (flag == true)
+            {
+                MessageBox.Show("Time clash");
+            }
+            else
+            {
+                SqlConnection con = new SqlConnection(myConnectionString);
+                con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.Add("@CourseName", courseNameLbl.Text);
+                cmd.Parameters.Add("@CourseTime", courseTimeLbl.Text);
+                cmd.Parameters.Add("@CourseDay", courseDayLbl.Text);
+                cmd.Parameters.Add("@CourseSection", courseSecLbl.Text);
+                cmd.ExecuteNonQuery();
+                DisplayData();
+            }
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
