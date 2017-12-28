@@ -63,6 +63,7 @@
             this.courseNameTB.Name = "courseNameTB";
             this.courseNameTB.Size = new System.Drawing.Size(168, 22);
             this.courseNameTB.TabIndex = 0;
+            this.courseNameTB.TextChanged += new System.EventHandler(this.courseNameTB_TextChanged);
             // 
             // label1
             // 
@@ -279,6 +280,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Name = "MainWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Course Editor";
             ((System.ComponentModel.ISupportInitialize)(this.courseList)).EndInit();
             this.groupBox1.ResumeLayout(false);

@@ -46,6 +46,7 @@
             this.userName.Name = "userName";
             this.userName.Size = new System.Drawing.Size(201, 22);
             this.userName.TabIndex = 0;
+            this.userName.TextChanged += new System.EventHandler(this.userName_TextChanged);
             // 
             // userNameLbl
             // 
@@ -62,6 +63,7 @@
             this.passwordTB.Name = "passwordTB";
             this.passwordTB.Size = new System.Drawing.Size(201, 22);
             this.passwordTB.TabIndex = 2;
+            this.passwordTB.UseSystemPasswordChar = true;
             // 
             // passLbl
             // 
@@ -100,6 +102,7 @@
             this.studentLoginBtn.TabIndex = 6;
             this.studentLoginBtn.Text = "Student Login";
             this.studentLoginBtn.UseVisualStyleBackColor = true;
+            this.studentLoginBtn.Visible = false;
             this.studentLoginBtn.Click += new System.EventHandler(this.studentLoginBtn_Click);
             // 
             // pictureBox1
@@ -118,7 +121,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(510, 322);
+            this.ClientSize = new System.Drawing.Size(492, 279);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.studentLoginBtn);
             this.Controls.Add(this.exitBtn);
@@ -128,6 +131,7 @@
             this.Controls.Add(this.userNameLbl);
             this.Controls.Add(this.userName);
             this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login ";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

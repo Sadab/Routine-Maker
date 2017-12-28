@@ -22,20 +22,23 @@ namespace Routine_Maker
 
         private void createCouseBtn_Click(object sender, EventArgs e)
         {
-            string courseName = courseNameTB.Text;
-            string sec = secTB.Text;
-            string query = "INSERT INTO Course (CourseName,CourseTime,CourseDay,CourseSection) VALUES (@CourseName,@CourseTime,@CourseDay,@CourseSection)";
-            string myConnectionString = ConfigurationManager.ConnectionStrings["routineDB"].ConnectionString.ToString();
-            SqlConnection con = new SqlConnection(myConnectionString);
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
-            cmd.Parameters.Add("@CourseName",courseNameTB.Text);
-            cmd.Parameters.Add("@CourseTime", time);
-            cmd.Parameters.Add("@CourseDay", day);
-            cmd.Parameters.Add("@CourseSection", secTB.Text);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Insert Done");
-       
+            if (courseNameTB.Text.Equals("") || comboDay.Text.Equals("") || comboTime.Text.Equals("") || secTB.Text.Equals("")) { MessageBox.Show("Insert All Feilds"); }
+            else
+            {
+                string courseName = courseNameTB.Text;
+                string sec = secTB.Text;
+                string query = "INSERT INTO Course (CourseName,CourseTime,CourseDay,CourseSection) VALUES (@CourseName,@CourseTime,@CourseDay,@CourseSection)";
+                string myConnectionString = ConfigurationManager.ConnectionStrings["routineDB"].ConnectionString.ToString();
+                SqlConnection con = new SqlConnection(myConnectionString);
+                con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.Add("@CourseName", courseNameTB.Text);
+                cmd.Parameters.Add("@CourseTime", time);
+                cmd.Parameters.Add("@CourseDay", day);
+                cmd.Parameters.Add("@CourseSection", secTB.Text);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Insert Done");
+            }
         }
     
 
@@ -99,6 +102,11 @@ namespace Routine_Maker
         private void comboTime_SelectedIndexChanged(object sender, EventArgs e)
         {
             time = comboTime.Text;
+        }
+
+        private void courseNameTB_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void delCourseBrn_Click(object sender, EventArgs e)

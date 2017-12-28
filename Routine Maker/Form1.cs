@@ -21,24 +21,49 @@ namespace Routine_Maker
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            string query = "select * from userInfo where UserId =" + userName.Text + "AND UserPass='" + passwordTB.Text + "'";
-            string myConnectionString = ConfigurationManager.ConnectionStrings["routineDB"].ConnectionString.ToString();
-            SqlConnection myConnection = new SqlConnection(myConnectionString);
-            myConnection.Open();
-            SqlCommand myCommand = new SqlCommand(query, myConnection);
-            SqlDataReader dataReader = myCommand.ExecuteReader();
-
-            if (dataReader.HasRows)
+            if (userName.Text.Equals("")||passwordTB.Text.Equals("")) { MessageBox.Show("Insert UserName And Password"); }
+            else if (userName.Text.Equals("1"))
             {
-                MainWindow m = new MainWindow();
-                m.Visible = true;
-                this.Visible = false;
+                string query = "select * from userInfo where UserId =" + userName.Text + "AND UserPass='" + passwordTB.Text + "'";
+                string myConnectionString = ConfigurationManager.ConnectionStrings["routineDB"].ConnectionString.ToString();
+                SqlConnection myConnection = new SqlConnection(myConnectionString);
+                myConnection.Open();
+                SqlCommand myCommand = new SqlCommand(query, myConnection);
+                SqlDataReader dataReader = myCommand.ExecuteReader();
+
+                if (dataReader.HasRows)
+                {
+                    MainWindow m = new MainWindow();
+                    m.Visible = true;
+                    this.Visible = false;
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect UserName or Password");
+                }
+                myConnection.Close();
             }
             else
             {
-                MessageBox.Show("Incorrect Password");
+                string query = "select * from userInfo where UserId =" + userName.Text + "AND UserPass='" + passwordTB.Text + "'";
+                string myConnectionString = ConfigurationManager.ConnectionStrings["routineDB"].ConnectionString.ToString();
+                SqlConnection myConnection = new SqlConnection(myConnectionString);
+                myConnection.Open();
+                SqlCommand myCommand = new SqlCommand(query, myConnection);
+                SqlDataReader dataReader = myCommand.ExecuteReader();
+
+                if (dataReader.HasRows)
+                {
+                    RoutineMaker rm = new RoutineMaker();
+                    rm.Visible = true;
+                    this.Visible = false;
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect Password");
+                }
+                myConnection.Close();
             }
-            myConnection.Close();
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
@@ -51,6 +76,11 @@ namespace Routine_Maker
             StudentLoginFrom sl = new StudentLoginFrom();
             sl.Visible = true;
             this.Visible = false;
+        }
+
+        private void userName_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

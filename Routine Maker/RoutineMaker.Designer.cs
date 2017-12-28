@@ -250,6 +250,7 @@
             this.Controls.Add(this.courseListGrid);
             this.Controls.Add(this.groupBox1);
             this.Name = "RoutineMaker";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Routine Maker";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
