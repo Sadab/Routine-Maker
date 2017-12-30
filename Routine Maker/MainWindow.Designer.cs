@@ -48,6 +48,7 @@
             this.delCourseBrn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.delCourseTB = new System.Windows.Forms.TextBox();
+            this.clearDBbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.courseList)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -174,12 +175,8 @@
             // 
             this.comboDay.FormattingEnabled = true;
             this.comboDay.Items.AddRange(new object[] {
-            "Sat",
-            "Sun",
-            "Mon",
-            "Tues",
-            "Wed",
-            "Thur"});
+            "SUN-TUES",
+            "MON-WED"});
             this.comboDay.Location = new System.Drawing.Point(23, 33);
             this.comboDay.Name = "comboDay";
             this.comboDay.Size = new System.Drawing.Size(121, 29);
@@ -270,11 +267,22 @@
             this.delCourseTB.Size = new System.Drawing.Size(195, 22);
             this.delCourseTB.TabIndex = 0;
             // 
+            // clearDBbtn
+            // 
+            this.clearDBbtn.Location = new System.Drawing.Point(204, 387);
+            this.clearDBbtn.Name = "clearDBbtn";
+            this.clearDBbtn.Size = new System.Drawing.Size(157, 43);
+            this.clearDBbtn.TabIndex = 15;
+            this.clearDBbtn.Text = "Clear DB";
+            this.clearDBbtn.UseVisualStyleBackColor = true;
+            this.clearDBbtn.Click += new System.EventHandler(this.clearDBbtn_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1257, 611);
+            this.Controls.Add(this.clearDBbtn);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
@@ -282,6 +290,7 @@
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Course Editor";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.courseList)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -317,5 +326,6 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.ComboBox comboDay;
         private System.Windows.Forms.ComboBox comboTime;
+        private System.Windows.Forms.Button clearDBbtn;
     }
 }

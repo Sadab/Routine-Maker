@@ -37,7 +37,7 @@ namespace Routine_Maker
                 cmd.Parameters.Add("@CourseDay", day);
                 cmd.Parameters.Add("@CourseSection", secTB.Text);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Insert Done");
+                MessageBox.Show("Course Created");
             }
         }
     
@@ -107,6 +107,22 @@ namespace Routine_Maker
         private void courseNameTB_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void clearDBbtn_Click(object sender, EventArgs e)
+        {
+            string query = "TRUNCATE TABLE Course";
+            string myConnectionString = ConfigurationManager.ConnectionStrings["routineDB"].ConnectionString.ToString();
+            SqlConnection myConnection = new SqlConnection(myConnectionString);
+            myConnection.Open();
+            SqlCommand myCommand = new SqlCommand(query, myConnection);
+            SqlDataReader dr = myCommand.ExecuteReader();
+            Application.Exit();
+        }
+
+        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
 
         private void delCourseBrn_Click(object sender, EventArgs e)

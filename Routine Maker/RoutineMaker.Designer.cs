@@ -54,12 +54,6 @@
             // comboCourseSelect
             // 
             this.comboCourseSelect.FormattingEnabled = true;
-            this.comboCourseSelect.Items.AddRange(new object[] {
-            "Algorithm",
-            "Data Structure",
-            "Database",
-            "Object Oriented Programming",
-            "Discrete Math"});
             this.comboCourseSelect.Location = new System.Drawing.Point(31, 80);
             this.comboCourseSelect.Name = "comboCourseSelect";
             this.comboCourseSelect.Size = new System.Drawing.Size(213, 33);
@@ -108,6 +102,7 @@
             this.courseListGrid.Size = new System.Drawing.Size(897, 178);
             this.courseListGrid.TabIndex = 3;
             this.courseListGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.courseListGrid_CellClick);
+            this.courseListGrid.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.courseListGrid_MouseDoubleClick);
             // 
             // panel1
             // 
@@ -216,6 +211,7 @@
             this.addedCourseGrid.RowTemplate.Height = 24;
             this.addedCourseGrid.Size = new System.Drawing.Size(536, 181);
             this.addedCourseGrid.TabIndex = 5;
+            this.addedCourseGrid.DoubleClick += new System.EventHandler(this.addedCourseGrid_DoubleClick);
             // 
             // exitBtn
             // 
@@ -252,6 +248,7 @@
             this.Name = "RoutineMaker";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Routine Maker";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RoutineMaker_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.courseListGrid)).EndInit();

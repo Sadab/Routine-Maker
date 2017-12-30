@@ -19,8 +19,22 @@ namespace Routine_Maker
         public RoutineMaker()
         {
             InitializeComponent();
+            getComboBoxData();
         }
+        private void getComboBoxData()
+        {
+            string myConnectionString = ConfigurationManager.ConnectionStrings["routineDB"].ConnectionString.ToString();
+            string Sql = "select distinct CourseName from Course";
+            SqlConnection conn = new SqlConnection(myConnectionString);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(Sql, conn);
+            SqlDataReader DR = cmd.ExecuteReader();
 
+            while (DR.Read())
+            {
+                comboCourseSelect.Items.Add(DR[0]);
+            }
+        }
         private void comboCourseSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
             courseSelect = comboCourseSelect.Text;
@@ -84,19 +98,14 @@ namespace Routine_Maker
             }
             myConnection.Close();
         }
-        public void CourseChecker()
-        {
-            
-        }
+
         private void addCourseToListBtn_Click(object sender, EventArgs e)
         {
             bool flag=false;
             string query = "INSERT INTO Routine (CourseName,CourseTime,CourseDay,CourseSection) VALUES (@CourseName,@CourseTime,@CourseDay,@CourseSection)";
             string query2 = "select * from Routine";
             string myConnectionString = ConfigurationManager.ConnectionStrings["routineDB"].ConnectionString.ToString();
-            
-            
-            
+
             if (courseNameLbl.Text == "" && courseDayLbl.Text == "" && courseTimeLbl.Text == "" && courseSecLbl.Text == "")
             {
                 MessageBox.Show("Fill up all feilds");
@@ -114,7 +123,12 @@ namespace Routine_Maker
                         flag = true;
                         break;
                     }
-                    else if(rd[1].ToString()==courseNameLbl.Text&& rd[2].ToString() == courseTimeLbl.Text)
+                    else if(rd[1].ToString()==courseNameLbl.Text && rd[2].ToString() == courseTimeLbl.Text)
+                    {
+                        flag = true;
+                        break;
+                    }
+                    else if (rd[2].ToString() == courseTimeLbl.Text)
                     {
                         flag = true;
                         break;
@@ -126,7 +140,7 @@ namespace Routine_Maker
             
             if (flag == true)
             {
-                MessageBox.Show("Time clash");
+                MessageBox.Show("Clash!!!");
             }
             else
             {
@@ -152,6 +166,27 @@ namespace Routine_Maker
             SqlDataReader dr = myCommand.ExecuteReader();
             Application.Exit();
 
+        }
+
+        private void RoutineMaker_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            string query = "TRUNCATE TABLE Routine";
+            string myConnectionString = ConfigurationManager.ConnectionStrings["routineDB"].ConnectionString.ToString();
+            SqlConnection myConnection = new SqlConnection(myConnectionString);
+            myConnection.Open();
+            SqlCommand myCommand = new SqlCommand(query, myConnection);
+            SqlDataReader dr = myCommand.ExecuteReader();
+            Application.Exit();
+        }
+
+        private void courseListGrid_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            courseListGrid.ReadOnly=true;
+        }
+
+        private void addedCourseGrid_DoubleClick(object sender, EventArgs e)
+        {
+            addedCourseGrid.ReadOnly = true;
         }
     }
 }
