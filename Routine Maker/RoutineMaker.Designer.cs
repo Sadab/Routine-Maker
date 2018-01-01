@@ -44,7 +44,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.addedCourseGrid = new System.Windows.Forms.DataGridView();
             this.exitBtn = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.genPdfBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.courseListGrid)).BeginInit();
             this.panel1.SuspendLayout();
@@ -215,7 +215,7 @@
             // 
             // exitBtn
             // 
-            this.exitBtn.Location = new System.Drawing.Point(959, 485);
+            this.exitBtn.Location = new System.Drawing.Point(1004, 485);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(135, 47);
             this.exitBtn.TabIndex = 6;
@@ -223,23 +223,22 @@
             this.exitBtn.UseVisualStyleBackColor = true;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
-            // label4
+            // genPdfBtn
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Coral;
-            this.label4.Location = new System.Drawing.Point(37, 496);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(727, 36);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Please Use Exit Button After Making Your Routine";
+            this.genPdfBtn.Location = new System.Drawing.Point(781, 485);
+            this.genPdfBtn.Name = "genPdfBtn";
+            this.genPdfBtn.Size = new System.Drawing.Size(143, 47);
+            this.genPdfBtn.TabIndex = 8;
+            this.genPdfBtn.Text = "Generate PDF";
+            this.genPdfBtn.UseVisualStyleBackColor = true;
+            this.genPdfBtn.Click += new System.EventHandler(this.genPdfBtn_Click);
             // 
             // RoutineMaker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1247, 553);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.genPdfBtn);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.addedCourseGrid);
             this.Controls.Add(this.panel1);
@@ -256,7 +255,6 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addedCourseGrid)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -278,6 +276,6 @@
         private System.Windows.Forms.Button addCourseToListBtn;
         private System.Windows.Forms.DataGridView addedCourseGrid;
         private System.Windows.Forms.Button exitBtn;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button genPdfBtn;
     }
 }

@@ -9,6 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
 
 namespace Routine_Maker
 {
@@ -133,6 +136,11 @@ namespace Routine_Maker
                         flag = true;
                         break;
                     }
+                    else if (rd[1].ToString() == courseNameLbl.Text)
+                    {
+                        flag = true;
+                        break;
+                    }
                     
                 }
             }
@@ -187,6 +195,34 @@ namespace Routine_Maker
         private void addedCourseGrid_DoubleClick(object sender, EventArgs e)
         {
             addedCourseGrid.ReadOnly = true;
+        }
+
+        private void genPdfBtn_Click(object sender, EventArgs e)
+        {
+            Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
+            PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(@"C:\Users\SadabRahman\source\repos\Routine Maker\Routine.pdf", FileMode.Create));
+            doc.SetPageSize(iTextSharp.text.PageSize.A4);
+            PdfPTable pdf = new PdfPTable(addedCourseGrid.Columns.Count);
+            doc.Open();
+            
+            for (int i=0; i<addedCourseGrid.Columns.Count; i++)
+            {
+                pdf.AddCell(new Phrase(addedCourseGrid.Columns[i].HeaderText));
+            }
+            pdf.HeaderRows = 1;
+            for(int i=0; i<addedCourseGrid.Rows.Count; i++)
+            {
+                for(int j=0; j<addedCourseGrid.Columns.Count; j++)
+                {
+                    if (addedCourseGrid[j, i].Value != null)
+                    {
+                        pdf.AddCell(new Phrase(addedCourseGrid[j, i].Value.ToString()));
+                    }
+                }
+            }
+            doc.Add(pdf);
+            doc.Close();
+            MessageBox.Show("Pdf Generated");
         }
     }
 }
