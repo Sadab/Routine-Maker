@@ -45,20 +45,27 @@ namespace Routine_Maker
 
         private void courseSelectBtn_Click(object sender, EventArgs e)
         {
-            string query = "select * from Course where CourseName like('%"+ comboCourseSelect.Text + "%')";
-            string myConnectionString = ConfigurationManager.ConnectionStrings["routineDB"].ConnectionString.ToString();
-            SqlConnection myConnection = new SqlConnection(myConnectionString);
-            myConnection.Open();
-            SqlCommand myCommand = new SqlCommand(query, myConnection);
-            myCommand.ExecuteNonQuery();
-            SqlDataReader dr = myCommand.ExecuteReader();
-            if (dr.HasRows)
+            if (comboCourseSelect.Text == "")
             {
-                DataTable dt = new DataTable();
-                dt.Load(dr);
-                courseListGrid.DataSource = dt;
+                MessageBox.Show("Please Select a Course");
             }
-            myConnection.Close();
+            else
+            {
+                string query = "select * from Course where CourseName like('%" + comboCourseSelect.Text + "%')";
+                string myConnectionString = ConfigurationManager.ConnectionStrings["routineDB"].ConnectionString.ToString();
+                SqlConnection myConnection = new SqlConnection(myConnectionString);
+                myConnection.Open();
+                SqlCommand myCommand = new SqlCommand(query, myConnection);
+                myCommand.ExecuteNonQuery();
+                SqlDataReader dr = myCommand.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    DataTable dt = new DataTable();
+                    dt.Load(dr);
+                    courseListGrid.DataSource = dt;
+                }
+                myConnection.Close();
+            }
         }
 
         private void courseListGrid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -141,11 +148,8 @@ namespace Routine_Maker
                         flag = true;
                         break;
                     }
-                    
                 }
             }
-            
-            
             if (flag == true)
             {
                 MessageBox.Show("Clash!!!");
