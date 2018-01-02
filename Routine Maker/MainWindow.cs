@@ -62,36 +62,43 @@ namespace Routine_Maker
 
         private void editCourse_Click(object sender, EventArgs e)
         {
-            string myConnectionString = ConfigurationManager.ConnectionStrings["routineDB"].ConnectionString.ToString();
-            SqlConnection myConnection = new SqlConnection(myConnectionString);
-            myConnection.Open();
-            if (courseNameTB.Text != "")
+            if (EditCourseIdTB.Text == "")
             {
-                string query = "update Course set CourseName='" + courseNameTB.Text + "'where CourseId=" + EditCourseIdTB.Text;
-                SqlCommand myCommand = new SqlCommand(query, myConnection);
-                myCommand.ExecuteNonQuery();
+                MessageBox.Show("Insert Course Id");
             }
-            if (comboTime.Text != "")
+            else
             {
-                string query = "update Course set CourseTime='" + comboTime.Text + "'where CourseId=" + EditCourseIdTB.Text;
-                SqlCommand myCommand = new SqlCommand(query, myConnection);
-                myCommand.ExecuteNonQuery();
+                string myConnectionString = ConfigurationManager.ConnectionStrings["routineDB"].ConnectionString.ToString();
+                SqlConnection myConnection = new SqlConnection(myConnectionString);
+                myConnection.Open();
+                if (courseNameTB.Text != "")
+                {
+                    string query = "update Course set CourseName='" + courseNameTB.Text + "'where CourseId=" + EditCourseIdTB.Text;
+                    SqlCommand myCommand = new SqlCommand(query, myConnection);
+                    myCommand.ExecuteNonQuery();
+                }
+                if (comboTime.Text != "")
+                {
+                    string query = "update Course set CourseTime='" + comboTime.Text + "'where CourseId=" + EditCourseIdTB.Text;
+                    SqlCommand myCommand = new SqlCommand(query, myConnection);
+                    myCommand.ExecuteNonQuery();
+                }
+                if (comboDay.Text != "")
+                {
+                    string query = "update Course set CourseDay='" + comboDay.Text + "'where CourseId=" + EditCourseIdTB.Text;
+                    SqlCommand myCommand = new SqlCommand(query, myConnection);
+                    myCommand.ExecuteNonQuery();
+                }
+                if (secTB.Text != "")
+                {
+                    string query = "update Course set CourseSection='" + secTB.Text + "'where CourseId=" + EditCourseIdTB.Text;
+                    SqlCommand myCommand = new SqlCommand(query, myConnection);
+                    myCommand.ExecuteNonQuery();
+                }
+                MessageBox.Show("Update Done");
+                myConnection.Close();
+                EditCourseIdTB.Text = "";
             }
-            if (comboDay.Text != "")
-            {
-                string query = "update Course set CourseDay='" + comboDay.Text + "'where CourseId=" + EditCourseIdTB.Text;
-                SqlCommand myCommand = new SqlCommand(query, myConnection);
-                myCommand.ExecuteNonQuery();
-            }
-            if (secTB.Text != "")
-            {
-                string query = "update Course set CourseSection='" + secTB.Text + "'where CourseId=" + EditCourseIdTB.Text;
-                SqlCommand myCommand = new SqlCommand(query, myConnection);
-                myCommand.ExecuteNonQuery();
-            }
-            MessageBox.Show("Update Done");
-            myConnection.Close();
-            EditCourseIdTB.Text = "";
         }
 
         private void comboDay_SelectedIndexChanged(object sender, EventArgs e)
@@ -127,14 +134,21 @@ namespace Routine_Maker
 
         private void delCourseBrn_Click(object sender, EventArgs e)
         {
-            string query = "delete from Course where CourseId=" + delCourseTB.Text;
-            string myConnectionString = ConfigurationManager.ConnectionStrings["routineDB"].ConnectionString.ToString();
-            SqlConnection myConnection = new SqlConnection(myConnectionString);
-            myConnection.Open();
-            SqlCommand myCommand = new SqlCommand(query, myConnection);
-            myCommand.ExecuteNonQuery();
-            MessageBox.Show("Delete Done");
-            delCourseTB.Text = "";
+            if (delCourseTB.Text == "")
+            {
+                MessageBox.Show("Enter Course ID");
+            }
+            else
+            {
+                string query = "delete from Course where CourseId=" + delCourseTB.Text;
+                string myConnectionString = ConfigurationManager.ConnectionStrings["routineDB"].ConnectionString.ToString();
+                SqlConnection myConnection = new SqlConnection(myConnectionString);
+                myConnection.Open();
+                SqlCommand myCommand = new SqlCommand(query, myConnection);
+                myCommand.ExecuteNonQuery();
+                MessageBox.Show("Delete Done");
+                delCourseTB.Text = "";
+            }
         }
 
     }

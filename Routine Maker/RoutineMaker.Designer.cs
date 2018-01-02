@@ -57,14 +57,14 @@
             this.comboCourseSelect.FormattingEnabled = true;
             this.comboCourseSelect.Location = new System.Drawing.Point(31, 80);
             this.comboCourseSelect.Name = "comboCourseSelect";
-            this.comboCourseSelect.Size = new System.Drawing.Size(213, 33);
+            this.comboCourseSelect.Size = new System.Drawing.Size(395, 33);
             this.comboCourseSelect.TabIndex = 0;
             this.comboCourseSelect.SelectedIndexChanged += new System.EventHandler(this.comboCourseSelect_SelectedIndexChanged);
             // 
             // courseSelectLbl
             // 
             this.courseSelectLbl.AutoSize = true;
-            this.courseSelectLbl.Location = new System.Drawing.Point(66, 43);
+            this.courseSelectLbl.Location = new System.Drawing.Point(30, 43);
             this.courseSelectLbl.Name = "courseSelectLbl";
             this.courseSelectLbl.Size = new System.Drawing.Size(134, 25);
             this.courseSelectLbl.TabIndex = 1;
@@ -76,16 +76,16 @@
             this.groupBox1.Controls.Add(this.comboCourseSelect);
             this.groupBox1.Controls.Add(this.courseSelectLbl);
             this.groupBox1.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 45);
+            this.groupBox1.Location = new System.Drawing.Point(12, 65);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(268, 197);
+            this.groupBox1.Size = new System.Drawing.Size(458, 197);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Course Select";
             // 
             // courseSelectBtn
             // 
-            this.courseSelectBtn.Location = new System.Drawing.Point(71, 133);
+            this.courseSelectBtn.Location = new System.Drawing.Point(157, 134);
             this.courseSelectBtn.Name = "courseSelectBtn";
             this.courseSelectBtn.Size = new System.Drawing.Size(129, 41);
             this.courseSelectBtn.TabIndex = 2;
@@ -97,7 +97,7 @@
             // 
             this.courseListGrid.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.courseListGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.courseListGrid.Location = new System.Drawing.Point(319, 68);
+            this.courseListGrid.Location = new System.Drawing.Point(488, 78);
             this.courseListGrid.Name = "courseListGrid";
             this.courseListGrid.RowTemplate.Height = 24;
             this.courseListGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -118,12 +118,13 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(12, 290);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(606, 181);
+            this.panel1.Size = new System.Drawing.Size(529, 181);
             this.panel1.TabIndex = 4;
             // 
             // addCourseToListBtn
             // 
-            this.addCourseToListBtn.Location = new System.Drawing.Point(443, 122);
+            this.addCourseToListBtn.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 12F, System.Drawing.FontStyle.Bold);
+            this.addCourseToListBtn.Location = new System.Drawing.Point(387, 122);
             this.addCourseToListBtn.Name = "addCourseToListBtn";
             this.addCourseToListBtn.Size = new System.Drawing.Size(127, 38);
             this.addCourseToListBtn.TabIndex = 7;
@@ -205,16 +206,17 @@
             // 
             this.addedCourseGrid.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.addedCourseGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.addedCourseGrid.Location = new System.Drawing.Point(627, 290);
+            this.addedCourseGrid.Location = new System.Drawing.Point(547, 290);
             this.addedCourseGrid.Name = "addedCourseGrid";
             this.addedCourseGrid.RowTemplate.Height = 24;
-            this.addedCourseGrid.Size = new System.Drawing.Size(664, 181);
+            this.addedCourseGrid.Size = new System.Drawing.Size(743, 181);
             this.addedCourseGrid.TabIndex = 5;
             this.addedCourseGrid.DoubleClick += new System.EventHandler(this.addedCourseGrid_DoubleClick);
             // 
             // exitBtn
             // 
-            this.exitBtn.Location = new System.Drawing.Point(986, 485);
+            this.exitBtn.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 12F, System.Drawing.FontStyle.Bold);
+            this.exitBtn.Location = new System.Drawing.Point(989, 494);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(135, 47);
             this.exitBtn.TabIndex = 6;
@@ -224,9 +226,10 @@
             // 
             // genPdfBtn
             // 
-            this.genPdfBtn.Location = new System.Drawing.Point(784, 485);
+            this.genPdfBtn.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.genPdfBtn.Location = new System.Drawing.Point(777, 494);
             this.genPdfBtn.Name = "genPdfBtn";
-            this.genPdfBtn.Size = new System.Drawing.Size(143, 47);
+            this.genPdfBtn.Size = new System.Drawing.Size(178, 47);
             this.genPdfBtn.TabIndex = 8;
             this.genPdfBtn.Text = "Generate PDF";
             this.genPdfBtn.UseVisualStyleBackColor = true;

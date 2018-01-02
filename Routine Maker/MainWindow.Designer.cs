@@ -105,9 +105,9 @@
             // 
             // loadCourseBtn
             // 
-            this.loadCourseBtn.Location = new System.Drawing.Point(290, 329);
+            this.loadCourseBtn.Location = new System.Drawing.Point(293, 324);
             this.loadCourseBtn.Name = "loadCourseBtn";
-            this.loadCourseBtn.Size = new System.Drawing.Size(139, 50);
+            this.loadCourseBtn.Size = new System.Drawing.Size(173, 50);
             this.loadCourseBtn.TabIndex = 9;
             this.loadCourseBtn.Text = "Load Courses";
             this.loadCourseBtn.UseVisualStyleBackColor = true;
@@ -130,7 +130,7 @@
             this.groupBox1.Controls.Add(this.courseNameTB);
             this.groupBox1.Controls.Add(this.groupBox5);
             this.groupBox1.Font = new System.Drawing.Font("Adobe Gothic Std B", 10.2F, System.Drawing.FontStyle.Bold);
-            this.groupBox1.Location = new System.Drawing.Point(62, 26);
+            this.groupBox1.Location = new System.Drawing.Point(28, 26);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(384, 329);
             this.groupBox1.TabIndex = 11;
@@ -189,7 +189,7 @@
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.EditCourseIdTB);
             this.groupBox2.Font = new System.Drawing.Font("Adobe Gothic Std B", 10.2F, System.Drawing.FontStyle.Bold);
-            this.groupBox2.Location = new System.Drawing.Point(62, 436);
+            this.groupBox2.Location = new System.Drawing.Point(28, 436);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(384, 154);
             this.groupBox2.TabIndex = 12;
@@ -235,14 +235,14 @@
             this.groupBox4.Font = new System.Drawing.Font("Adobe Gothic Std B", 10.2F, System.Drawing.FontStyle.Bold);
             this.groupBox4.Location = new System.Drawing.Point(483, 436);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(653, 154);
+            this.groupBox4.Size = new System.Drawing.Size(762, 154);
             this.groupBox4.TabIndex = 14;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Delete Course";
             // 
             // delCourseBrn
             // 
-            this.delCourseBrn.Location = new System.Drawing.Point(290, 91);
+            this.delCourseBrn.Location = new System.Drawing.Point(347, 91);
             this.delCourseBrn.Name = "delCourseBrn";
             this.delCourseBrn.Size = new System.Drawing.Size(139, 48);
             this.delCourseBrn.TabIndex = 13;
@@ -264,14 +264,14 @@
             this.delCourseTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
             this.delCourseTB.Location = new System.Drawing.Point(264, 40);
             this.delCourseTB.Name = "delCourseTB";
-            this.delCourseTB.Size = new System.Drawing.Size(195, 22);
+            this.delCourseTB.Size = new System.Drawing.Size(290, 22);
             this.delCourseTB.TabIndex = 0;
             // 
             // clearDBbtn
             // 
-            this.clearDBbtn.Location = new System.Drawing.Point(204, 387);
+            this.clearDBbtn.Location = new System.Drawing.Point(28, 387);
             this.clearDBbtn.Name = "clearDBbtn";
-            this.clearDBbtn.Size = new System.Drawing.Size(157, 43);
+            this.clearDBbtn.Size = new System.Drawing.Size(127, 24);
             this.clearDBbtn.TabIndex = 15;
             this.clearDBbtn.Text = "Clear DB";
             this.clearDBbtn.UseVisualStyleBackColor = true;
