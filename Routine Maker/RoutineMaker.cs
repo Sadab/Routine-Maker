@@ -138,7 +138,7 @@ namespace Routine_Maker
                         flag = true;
                         break;
                     }
-                    else if (rd[2].ToString() == courseTimeLbl.Text)
+                    else if (rd[2].ToString() == courseTimeLbl.Text && rd[3].ToString()==courseDayLbl.Text)
                     {
                         flag = true;
                         break;

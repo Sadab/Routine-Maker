@@ -206,6 +206,7 @@
             // 
             this.addedCourseGrid.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.addedCourseGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.addedCourseGrid.Enabled = false;
             this.addedCourseGrid.Location = new System.Drawing.Point(547, 290);
             this.addedCourseGrid.Name = "addedCourseGrid";
             this.addedCourseGrid.RowTemplate.Height = 24;
