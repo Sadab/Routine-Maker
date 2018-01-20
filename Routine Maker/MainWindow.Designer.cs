@@ -64,7 +64,6 @@
             this.courseNameTB.Name = "courseNameTB";
             this.courseNameTB.Size = new System.Drawing.Size(168, 22);
             this.courseNameTB.TabIndex = 0;
-            this.courseNameTB.TextChanged += new System.EventHandler(this.courseNameTB_TextChanged);
             // 
             // label1
             // 

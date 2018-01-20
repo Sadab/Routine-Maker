@@ -18,7 +18,6 @@ namespace Routine_Maker
     public partial class RoutineMaker : Form
     {
         string courseSelect;
-        List<string> a = new List<string>();
         public RoutineMaker()
         {
             InitializeComponent();

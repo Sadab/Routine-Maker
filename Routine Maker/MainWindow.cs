@@ -111,11 +111,6 @@ namespace Routine_Maker
             time = comboTime.Text;
         }
 
-        private void courseNameTB_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void clearDBbtn_Click(object sender, EventArgs e)
         {
             string query = "TRUNCATE TABLE Course";
